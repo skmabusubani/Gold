@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Index.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="head">
+    <p><img id="icon" src="Images/Gold_Icon.png" alt="Gold_Icon">
+    <h1>Bismillah Die Cutting Work</h1>
+    </div></p>
+
+    <!-- Function -->
+     <div class="function">
+        <label for="Product">Enter Category:</label>
+        <select id = "category">
+            <option value="Ring">Ring</option>
+            <option value="Chain">Chain</option>
+            <option value="Bracelet">Bracelet</option>
+        </select>
+        <button type="button" onclick="Check()">Submit</button>
+     </div>
+
+    <iframe id="content" src="" style="width:100%; height: 50vh; border:0;"></iframe>
+    <script>
+        
+function Check(){
+    const value = document.getElementById("category").value;
+    const target = {
+      Ring: "Ring.html",
+      Chain: "Chain.html",
+      Bracelet: "Bracelet.html"
+    };
+    document.getElementById("content").src = target[value];
+  }
+
+    </script>
+    <!-- Footer Section -->
+    <div class="Footer">
+        <img id="footerimg" src="Images/Dies_set.jpg" alt="">
+        <div><h1>Khadaer vali</h1>
+        <p>Contact: +91 ***** *****</p>        
+        Marvadi Bazar, Tenali
+        Guntur, Andhra Pradesh 522201</div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rings</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; }
+    h1 { padding: 16px; border-bottom: 1px solid #eee; margin: 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      padding: 16px;
+    }
+    figure { margin: 0; border: 1px solid #eee; border-radius: 6px; overflow: hidden; background: #fff; }
+    img { width: 100%; height: auto; display: block; aspect-ratio: 4/3; object-fit: cover; }
+    figcaption { text-align: center; padding: 8px; background: #0008; color: #fff; }
+    @media (max-width: 1024px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <h1>Ring</h1>
+
+  <main id="image-container" class="grid"></main>
+
+  <script>
+    const container = document.getElementById("image-container");
+
+    // Change this to the highest number you have
+    const MAX = 50;
+
+    for (let i = 1; i <= MAX; i++) {
+      const fig = document.createElement("figure");
+
+      const img = document.createElement("img");
+      img.src = `Rings/Ring${i}.jpg`;
+      img.alt = `Ring${i}`;
+      img.loading = "lazy";
+      img.decoding = "async";
+
+      // If an image doesn't exist, remove the figure silently
+      img.onerror = () => fig.remove();
+
+      const cap = document.createElement("figcaption");
+      cap.textContent = String(i); // numbering under each pic
+
+      fig.append(img, cap);
+      container.appendChild(fig);
+    }
+    // IMPORTANT: Do not set innerHTML after appending; it will clear your images.
+  </script>
+</body>
